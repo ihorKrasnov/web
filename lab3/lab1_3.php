@@ -27,6 +27,25 @@
         abstract public function getPointCoordinate();
     }
 
+    class BlackPoint extends Point {
+        private $color = 'Black'; // Колір точки завжди чорний
+        private $createdAt; // Дата створення точки
+
+        public function __construct($x, $y) {
+            parent::__construct($x, $y); // Виклик конструктора батьківського класу
+
+            $this->createdAt = new DateTime(); // Збереження дати створення
+        }
+
+        public function getPointCoordinate() {
+            echo $this->x . " ; " . $this->y . "\n";
+        }
+
+        public function showInfoMessage() {
+            echo "X: " . $this->getX() . ", Y: " . $this->getY() . "\n";
+        }
+    }
+
     class ColorPoint extends Point {
         private $color; // Колір точки
         private $createdAt; // Дата створення точки
@@ -68,14 +87,17 @@
         }
     }
 
-    // Приклад використання класу массив що складається з об'єктів класу
+    // Приклад використання класу массив що складається з об'єктів класу ColorPoint та BlackPoint
     $listOfPoints=array();
     $listOfPoints[0] = new ColorPoint(10, 20, 'Red');
     $listOfPoints[1] = new ColorPoint(0, 10, 'Blue');
+    $listOfPoints[2] = new BlackPoint(5, 5);
 
     
     for ($i = 0; $i < count($listOfPoints); $i++) {
+        //Оскільки клас ColorPoint та BlackPoint реалізують абстрактний клас Point, то ми можемо викликати методи класу Point
         $listOfPoints[$i]->showInfoMessage();
         $listOfPoints[$i]->getPointCoordinate(); 
     }
+
 ?>
