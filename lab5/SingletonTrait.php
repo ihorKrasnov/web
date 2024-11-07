@@ -35,13 +35,7 @@ class MySingleton {
 $instance1 = MySingleton::getInstance();
 echo $instance1->doSomething() . "\n";
 
-// Отримуємо другий екземпляр
-$instance2 = MySingleton::getInstance();
+// створюємо екземпляр класу
+$instance = new MySingleton();
 
-// Перевіряємо, чи вони однакові
-if ($instance1 === $instance2) {
-    echo "Обидва екземпляри однакові.\n";
-} else {
-    echo "Екземпляри різні.\n";
-}
 ?>

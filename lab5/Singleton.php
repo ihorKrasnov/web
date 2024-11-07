@@ -25,16 +25,10 @@ class someClass {
 
     }
 }
+
 // Отримуємо перший екземпляр
 $instance1 = someClass::getInstance();
 
-// Отримуємо другий екземпляр
-$instance2 = someClass::getInstance();
 
-// Перевіряємо, чи вони однакові
-if ($instance1 === $instance2) {
-    echo "Обидва екземпляри однакові.\n";
-} else {
-    echo "Екземпляри різні.\n";
-}
-?>
+// створюємо екземпляр класу
+$instance = new someClass();
